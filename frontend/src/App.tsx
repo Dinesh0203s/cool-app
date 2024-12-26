@@ -1,5 +1,5 @@
 // import { useState } from 'react';// Update the path to your logo
-import './App.css';
+import './index.css';
 
 function App() {
   return (
