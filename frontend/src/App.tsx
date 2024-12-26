@@ -3,12 +3,6 @@ import "./index.css";
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
-
-  const handleThemeToggle = () => {
-    setIsDarkMode(!isDarkMode);
-    document.documentElement.setAttribute("data-theme", isDarkMode ? "light" : "dark");
-  };
-
   return (
     <div>
       <header className="navbar">
