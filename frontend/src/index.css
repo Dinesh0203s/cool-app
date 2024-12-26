@@ -2,24 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* General Reset */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Bebas Neue", sans-serif;
-}
-
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
 /* Theme Variables */
 :root {
-  --background-color: #000000;
-  --text-color: #e2e2e2;
+  --background-color: #ffffff;
+  --text-color: #0c0b0b;
   --navbar-background: #ffffff;
   --link-color: #000000;
   --link-hover-gradient: linear-gradient(90deg, hsla(339, 100%, 55%, 1) 0%, hsla(197, 100%, 64%, 1) 100%);
@@ -29,50 +15,55 @@ body {
   --button-hover-text-color: #000000;
 }
 
-[data-theme="light"] {
-  --background-color: #ffffff;
-  --text-color: #000000;
-  --navbar-background: #f8f9fa;
-  --link-color: #000000;
-  --link-hover-gradient: linear-gradient(90deg, hsla(339, 100%, 55%, 1) 0%, hsla(197, 100%, 64%, 1) 100%);
-  --button-background: #000000;
-  --button-text-color: #ffffff;
-  --button-hover-background: #e2e2e2;
-  --button-hover-text-color: #000000;
-}
-
 /* Navbar */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 50px;
-  background-color: var(--navbar-background);
-  border-radius: 40px;
-  margin-right: 90px;
-  margin-left: 30px;
-  height: 60px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease;
-}
-
-.navbar-logo {
-  font-size: 24px;
-  color: var(--link-color);
-  text-decoration: none;
-}
-
-.navbar-links {
-  display: flex;
-  gap: 10vh;
-}
-
-.navbar-links a {
-  color: var(--link-color);
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
+    display: flex;
+    justify-content: space-between; /* Space between items */
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #eeeeee; /* Clean white background */
+    border-radius: 40px; /* Rounded edges */
+    margin: 20px auto; /* Center navbar horizontally */
+    max-width: 1200px; /* Maximum width */
+    height: 60px; /* Height of the navbar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+  }
+  
+  .navbar-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem; /* Space between links */
+  }
+  
+  .navbar-links a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-links a:hover {
+    background: var(--link-hover-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.1rem;
+  }
+  
+  .navbar-logo {
+    font-size: 1.5rem;
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
 
 .navbar-links a:hover {
   background: var(--link-hover-gradient);
@@ -98,62 +89,27 @@ body {
   background-color: var(--button-hover-background);
   color: var(--button-hover-text-color);
 }
-
-/* Theme Switcher */
-.theme-switcher {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.theme-controller {
-  display: none;
-}
-
-.sun-icon,
-.moon-icon {
-  stroke: var(--text-color);
-  fill: none;
-  transition: stroke 0.3s ease;
-}
-
-/* Heading */
-h1 {
-  text-align: center;
-  margin-top: 50px;
-  font-size: 3rem;
-  color: var(--text-color);
-  transition: color 0.3s ease;
-}
-/* Theme Switcher Styles */
-.theme-switcher {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
+/* Marquee container */
+.marquee-container {
+    overflow: hidden; /* Hides overflowing text */
+    white-space: nowrap; /* Prevents line breaks */
   }
   
-  .theme-controller {
-    display: none;
+  /* Marquee text animation */
+  .marquee {
+    display: inline-block;
+    animation: scroll 10s linear infinite;
+    font-size: 1.5rem; /* Font size */
+    font-weight: bold; /* Bold text */
   }
   
-  .theme-controller + .sun-icon,
-  .theme-controller + .moon-icon {
-    stroke: var(--text-color);
-    fill: none;
-    transition: stroke 0.3s ease;
-  }
-  
-  .theme-controller + .sun-icon {
-    display: block;
-  }
-  
-  .theme-controller:checked + .sun-icon {
-    display: none;
-  }
-  
-  .theme-controller:checked + .moon-icon {
-    display: block;
+  /* Keyframes for scrolling effect */
+ @keyframes scroll {
+    0% {
+      transform: translateX(100%); 
+    }
+    100% {
+      transform: translateX(-100%); 
+    }
   }
   
